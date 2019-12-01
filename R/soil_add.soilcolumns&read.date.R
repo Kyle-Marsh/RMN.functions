@@ -40,10 +40,10 @@ add.soilcolumns = function(data, inf_diameter = 15.2, bd_diameter = 5.2, volume 
 
   #
   ## add some simple data about our measurements
-  data$Ring.Infiltrometer.Diameter<-inf_diameter
-  data$Bulk.Density.Diameter<-bd_diameter
-  data$Water.Volume<-volume
-  data$Bulk.Density.Height<-bd_height
+  data$Ring.Infiltrometer.Diameter[data$Ring.Infiltrometer.Diameter == 0.0]<-inf_diameter
+  data$Bulk.Density.Diameter[data$Bulk.Density.Diameter == 0.0]<-bd_diameter
+  data$Water.Volume[data$Water.Volume ==0.0]<-volume
+  data$Bulk.Density.Height[data$Bulk.Density.Height ==0.0]<-bd_height
   data$Total.Volume<-pi*((data$Bulk.Density.Diameter/2)^2)*data$Bulk.Density.Height
   data$Bulk.Density.Rock.Vol[is.na(data$Bulk.Density.Rock.Vol)] = 0
   data$Bulk.Density<-(data$Bulk.Density.Dry.Wt/(data$Total.Volume-data$Bulk.Density.Rock.Vol))
