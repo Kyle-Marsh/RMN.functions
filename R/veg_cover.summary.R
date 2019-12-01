@@ -38,7 +38,7 @@ cover.summary = function(lpi, releve,
   releve = subset(releve, year %in% surveyyear)
   lpi = subset(lpi, year %in% surveyyear)
 
-  covsum<- ddply(releve, .(Vegetation.Type, pointyear), summarise, Percent.Cover=sum(Percent.Cover), .drop=F)
+  covsum<- plyr::ddply(releve, .(Vegetation.Type, pointyear), summarise, Percent.Cover=sum(Percent.Cover), .drop=F)
   shrubs<-subset(covsum, subset=covsum$Vegetation.Type == "shrubs")
   colnames(shrubs) = c("covertype", "pointyear", "Shrubcover")
   shrubs = subset(shrubs, select = c("pointyear", "Shrubcover"))
