@@ -9,3 +9,5 @@ Description: More about what it does (maybe more than one line)
 License: What license is it under?
 Encoding: UTF-8
 LazyData: true
+Imports: PairedData, stringr, soiltexture, reshape2, gridExtra, dplyr, ggplot2, knitr, plyr, lubridate, ggrepel
+RoxygenNote: 6.1.1
