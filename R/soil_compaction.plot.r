@@ -36,8 +36,8 @@ compaction.plot<-function(data,
                           legend = TRUE,
                           legendnames = c(paste(c(transect)), "Others"),
                           legendtitle = "Ranch",
-                          xlab = "Bulk density, distance from target",
-                          ylab = "Infiltration, distance from target",
+                          xlab = "Bulk density (g/cm3)",
+                          ylab = "Water Infiltration Rate (minutes)",
                           box.padding = 0.5,
                           pointsize = 2,
                           linetype = "dashed",
@@ -86,8 +86,7 @@ compaction.plot<-function(data,
 
   p = ggplot(masked_soil, aes(x = BD_dist, y = Infilt_dist, color = Transect)) +
     geom_point(size = pointsize) +
-    geom_hline(yintercept = 0, linetype = linetype) +
-    geom_vline(xintercept = 0, linetype = linetype) +
+    geom_hline(yintercept = 10, linetype = linetype) +
     scale_color_manual(values = pointcolors, labels = legendnames) +
     guides(color = ifelse(legend, guide_legend(title = legendtitle), FALSE), label = FALSE) +
     xlab(xlab) +

@@ -72,8 +72,10 @@ prepare.soil.triangle = function(data, Inftarget = 3.81){
 
 
 
-  data1$Infilt_dist = data1$Infilt_target - data1$Infilt1
-  data1$BD_dist = data1$BD_target - data1$Bulk.Density
+  #data1$Infilt_dist = data1$Infilt_target - data1$Infilt1
+  data1$Infilt_dist = data1$Infilt1
+  #data1$BD_dist = data1$BD_target - data1$Bulk.Density
+  data1$BD_dist =  data1$Bulk.Density
 
   data1$Location<-str_sub(data1$Point, -2)
 
