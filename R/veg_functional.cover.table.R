@@ -93,7 +93,7 @@ functional.cover.table = function(lpi,
   }else{
     Fun.Sum3$pointyear = NULL
     Fun.Sum3$Transect = NULL
-    Fun.Sum3[,3:ncol(Fun.Sum3)] = round(Fun.Sum3[,5:ncol(Fun.Sum3)], 2)
+    Fun.Sum3[,3:ncol(Fun.Sum3)] = round(Fun.Sum3[,3:ncol(Fun.Sum3)], 2)
     return(Fun.Sum3)
   }
 
