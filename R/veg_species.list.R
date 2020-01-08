@@ -19,8 +19,8 @@ species.list = function(lpi, releve,
                         transect,
                         surveyyear = levels(as.factor(lpi$year))){
   library(reshape2)
-  CAPlants = RMN.functions:::CAPlantsv2
-  Invasives = RMN.functions:::Invasivesv1
+  CAPlants = RMN:::CAPlantsv2
+  Invasives = RMN:::Invasivesv1
 
   lpi$Point.Dir = paste(lpi$pointyear, lpi$Direction, sep = "-")
   lpi$year = as.factor(lpi$year)
