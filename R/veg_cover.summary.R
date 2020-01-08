@@ -107,7 +107,7 @@ cover.summary = function(lpi, releve,
 
 
   ##add plants that are in the soil surface hit to this that##
-  CAPlants = RMN:::CAPlantsv2
+  CAPlants = RMN.functions:::CAPlantsv2
   richness<-NULL
   both1 = both
   both1$Layer = NULL
