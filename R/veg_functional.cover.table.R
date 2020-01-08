@@ -27,8 +27,8 @@ functional.cover.table = function(lpi,
                includemeta = FALSE){
 
   library(reshape2)
-  CAPlants = RMN.functions:::CAPlantsv2
-  Invasives = RMN.functions:::Invasivesv1
+  CAPlants = RMN:::CAPlantsv2
+  Invasives = RMN:::Invasivesv1
 
 
 
