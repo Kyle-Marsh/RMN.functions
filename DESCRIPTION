@@ -2,12 +2,12 @@ Package: RMN.functions
 Type: Package
 Title: What the Package Does (Title Case)
 Version: 0.1.0
-Author: Who wrote it
-Maintainer: The package maintainer <yourself@somewhere.net>
+Author: Kyle Marsh, Jacob Weverkaj
+Maintainer: The package maintainer <kmarsh@pointblue.org>
 Description: More about what it does (maybe more than one line)
     Use four spaces when indenting paragraphs within the Description.
 License: What license is it under?
 Encoding: UTF-8
 LazyData: true
 Imports: PairedData, stringr, soiltexture, reshape2, gridExtra, dplyr, ggplot2, knitr, plyr, lubridate, ggrepel
-RoxygenNote: 6.1.1
+RoxygenNote: 7.0.2

@@ -4,9 +4,12 @@
 \alias{bird_focal.graph}
 \title{Create a Focal Species Abundance per Year Graph}
 \usage{
-bird_focal.graph(df, transect = c(levels(as.factor(df$Transect))),
+bird_focal.graph(
+  df,
+  transect = c(levels(as.factor(df$Transect))),
   surveyyear = c(levels(as.factor(df$YEAR))),
-  choose_focal_group = c("Grassland", "Oak.Woodland", "Riparian"))
+  choose_focal_group = c("Grassland", "Oak.Woodland", "Riparian")
+)
 }
 \arguments{
 \item{df}{A data frame object. Only will take wide.data which is created by: add.zero function , bird_wide.data(), bird_prepare(). See those functions for additional previous steps.}

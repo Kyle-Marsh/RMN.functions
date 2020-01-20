@@ -12,7 +12,6 @@
 #' @examples bird_focal.group(df2, transect="TOKA", surveyyear= 2016, distance_focal=300)
 #'
 #' @export bird_focal.group
-#'
 
 bird_focal.groups<-function(df2, distance_focal, transect=c(levels(as.factor(df$Transect))), surveyyear=c(levels(as.factor(df$YEAR)))){
 
@@ -74,4 +73,4 @@ bird_focal.groups<-function(df2, distance_focal, transect=c(levels(as.factor(df$
     ggtitle(titleCustom_focal)+
     scale_fill_manual(values = c("gray27", "gray55", "gray68", "gray88"))
 
-  }
+}

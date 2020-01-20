@@ -10,8 +10,6 @@ toSeconds(x)
 }
 \arguments{
 \item{x}{}
-
-\item{x}{}
 }
 \value{
 Time in seconds

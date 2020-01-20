@@ -10,8 +10,6 @@ all_Tidynames(df)
 }
 \arguments{
 \item{df}{A dataframe object}
-
-\item{df}{A dataframe object}
 }
 \value{
 A data frame with tidy column names

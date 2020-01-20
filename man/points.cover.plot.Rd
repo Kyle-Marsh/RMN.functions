@@ -4,9 +4,16 @@
 \alias{points.cover.plot}
 \title{Create a plot of cover for functional groups at each point}
 \usage{
-\method{points}{cover.plot}(lpi, transect, type = "absolute",
-  surveyyear = levels(as.factor(lpi$year)), invasives = FALSE,
-  legend.position = "top", pallete = "YlGnBu", x.angle = 45)
+\method{points}{cover.plot}(
+  lpi,
+  transect,
+  type = "absolute",
+  surveyyear = levels(as.factor(lpi$year)),
+  invasives = FALSE,
+  legend.position = "top",
+  pallete = "YlGnBu",
+  x.angle = 45
+)
 }
 \arguments{
 \item{lpi}{A dataframe object of lpi data from a veg survey}

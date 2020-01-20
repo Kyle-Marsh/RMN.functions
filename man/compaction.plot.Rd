@@ -4,13 +4,25 @@
 \alias{compaction.plot}
 \title{Make a soil compaction plot}
 \usage{
-compaction.plot(data, transect, year, background = TRUE, labels = TRUE,
+compaction.plot(
+  data,
+  transect,
+  year,
+  background = TRUE,
+  labels = TRUE,
   pointcolors = c(rep("black", length(transect)), "gray"),
-  legend = TRUE, legendnames = c(paste(c(transect)), "Others"),
-  legendtitle = "Ranch", xlab = "Bulk density, distance from target",
-  ylab = "Infiltration, distance from target", box.padding = 0.5,
-  pointsize = 2, linetype = "dashed", Inftarget = 3.81,
-  xlims = c(NA, NA), ylims = c(NA, NA))
+  legend = TRUE,
+  legendnames = c(paste(c(transect)), "Others"),
+  legendtitle = "Ranch",
+  xlab = "Bulk density (g/cm3)",
+  ylab = "Water Infiltration Rate (minutes)",
+  box.padding = 0.5,
+  pointsize = 2,
+  linetype = "dashed",
+  Inftarget = 3.81,
+  xlims = c(NA, NA),
+  ylims = c(NA, NA)
+)
 }
 \arguments{
 \item{data}{dataframe from output of soil.final.cleanup()}

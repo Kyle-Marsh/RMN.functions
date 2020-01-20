@@ -4,9 +4,14 @@
 \alias{functional.cover.change.table}
 \title{Functional cover change summary table}
 \usage{
-functional.cover.change.table(lpi, transect, invasives = FALSE,
-  surveyyear = levels(as.factor(lpi$year)), type = "absolute",
-  casted = TRUE)
+functional.cover.change.table(
+  lpi,
+  transect,
+  invasives = FALSE,
+  surveyyear = levels(as.factor(lpi$year)),
+  type = "absolute",
+  casted = TRUE
+)
 }
 \arguments{
 \item{lpi}{A dataframe object of lpi data from a veg survey}

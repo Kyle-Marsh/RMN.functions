@@ -4,8 +4,12 @@
 \alias{data.sum}
 \title{Make a table to summarize data}
 \usage{
-data.sum(data, transect, surveyyear = levels(as.factor(data$YEAR)),
-  return_df = FALSE)
+data.sum(
+  data,
+  transect,
+  surveyyear = levels(as.factor(data$YEAR)),
+  return_df = FALSE
+)
 }
 \arguments{
 \item{data}{dataframe, output of soil.final.cleanup()}
