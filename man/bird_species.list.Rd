@@ -6,6 +6,7 @@
 \usage{
 bird_species.list(
   df,
+  distance = 300,
   transect = c(levels(as.factor(df$Transect))),
   surveyyear = c(levels(as.factor(df$YEAR)))
 )

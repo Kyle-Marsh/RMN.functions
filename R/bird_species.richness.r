@@ -15,32 +15,62 @@
 
 
 
-bird_species.richness<-function(df,transect=c(levels(as.factor(df$Transect))), surveyyear=c(levels(as.factor(df$YEAR)))){
+
+bird_species.richness<-function(df,distance = 300, transect=c(levels(as.factor(df$Transect))), surveyyear=c(levels(as.factor(df$YEAR)))){
+
+  data<-subset(df, subset = df$Distance.Bin <= distance)
+  data$Distance.Bin.ID<-as.factor(data$Distance.Bin.ID)
+  data = subset(data, Transect %in% transect)
+  data = subset(data, YEAR %in% surveyyear)
+  df1<-data
+  a<-subset(df1,duplicated(df1$SURVEY)==FALSE)
+  visits<-aggregate(a$Tally, list(a$PointYear), sum)
+  names(visits)<-c("PointYear", "Visits")
 
 
-  df$YEAR<-as.factor(df$YEAR)
+  data2<-subset(df, subset = df$Distance.Bin <= distance)
+  data2$Distance.Bin.ID<-as.factor(data2$Distance.Bin.ID)
+  data2 = subset(data2, Transect %in% transect)
+  data2 = subset(data2, YEAR %in% surveyyear)
+  df2<-data2
 
-  df = subset(df, Transect %in% transect)
-  df = subset(df, YEAR %in% surveyyear)
+  species2<-aggregate(df2$Count,list(df2$Spp , df2$Transect, df2$YEAR, df2$Point),sum)
+  names(species2)<-c("Spp", "Transect", "YEAR", "POINT","COUNT")
+  species2$PointYear<-as.factor(paste(species2$POINT,species2$YEAR, sep=""))
 
-  df2<-df[,c("YEAR", "POINT", "Richness")]
-  df2$average=round(sum(df2$Richness)/length(df2$Richness),0)
-  df2$obs_mean2=((df2$Richness-df2$average)^2)
-  df2$div=(df2$obs_mean2/(length(unique(df2$POINT))-1))
-  df2$sd=sqrt(df2$div)
-  df2$se= df2$sd/(sqrt(length(unique(df2$POINT))-1))
-  df2$upper= (df2$Richness+df2$se)
-  df2$lower=(df2$Richness-df2$se)
+  species<-left_join(species2, visits, by="PointYear")
+  df3<-add.zeros.noCount(species)
 
-  ggplot(df2,aes(x=df2$POINT, y=df2$Richness,fill=YEAR, group=df2$YEAR))+
+  df4<-reshape(df3, v.names="ABUNDANCE", idvar="PointYear",timevar="Spp", direction="wide")
+
+  JustSpp<-substr(names(df4[,6:ncol(df4)]),11,14)
+  colnames(df4)[6:ncol(df4)] <- JustSpp
+
+  first<-df4[,1:5]
+  second<-df4[,6:length(df4[1,])]
+  second<-second[,order(colnames(second))]
+  df5<-as.data.frame(cbind(first,second))
+
+
+  df5$Richness<-rowSums(df5[,5:ncol(df5)] != 0)
+
+
+
+
+  df5<-df5[,c("YEAR", "POINT", "Richness")]
+  df5[,2]<-as.factor(df5[,2])
+
+  titleCustom = paste("Bird Species Richness per Point: Radius of " , distance, "meters")
+
+  ggplot(df5,aes(x=df5$POINT, y=as.factor(df5$Richness), fill=as.factor(df5$YEAR), group=YEAR))+
     geom_col( position = "dodge")+
-    geom_errorbar(aes(ymin=lower, ymax=upper), width=.2, position=position_dodge(.9)) +
     ylab("Bird Species Richness")+
     xlab("Point Id")+
     theme(axis.text.x = element_text(angle = 40, hjust = 1))+
-    ggtitle("Bird Species Richness per Point")+
-    scale_fill_manual(values = c("gray28","dodgerblue4","deepskyblue3","lightblue3", "lightblue4", "lightblue3","lightblue1"))
+    geom_text(aes(label=as.character(df5$Richness)), position=position_dodge(width=0.9), vjust=-0.25)+
+    ggtitle(titleCustom)+
+    scale_fill_manual(name ="Year",values = c("gray28","dodgerblue4","deepskyblue3","lightblue3", "lightblue4", "lightblue3","lightblue1"))
 
 
 
-}
+    }

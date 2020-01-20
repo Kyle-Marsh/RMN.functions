@@ -14,16 +14,28 @@
 #'
 #'
 
-bird_birdcount.year<-function(df,transect, surveyyear=c(levels(as.factor(df$YEAR)))){
+
+bird_birdcount.year<-function(df, distance =300, transect=c(levels(as.factor(df$Transect))), surveyyear=c(levels(as.factor(df$YEAR)))){
 
 
-  df = subset(df, Transect %in% transect)
-  df = subset(df, YEAR %in% surveyyear)
+  visits<-bird_visits(df)
 
-  species2<-df %>%
-    arrange(desc(COUNT)) %>%
-    select(1:6)
-  df<-species2[,c(1,5,4,3,2,6)]
+  data<-subset(df, subset = df$Distance.Bin < distance)
+  data$Distance.Bin.ID<-as.factor(data$Distance.Bin.ID)
+  data = subset(data, Transect %in% transect)
+  data = subset(data, YEAR %in% surveyyear)
+  df<-data
 
-  return(df)
+
+  species2<-aggregate(df$Count,list(df$Spp,df$Common.Name ,df$Scientific.Name  , df$Transect, df$YEAR),sum)
+  names(species2)<-c("Spp","Common.Name", "Scientific.Name", "Transect", "YEAR","COUNT")
+
+
+  df4<- species2%>%
+    dplyr::group_by(Spp, Transect, YEAR ) %>%
+    dplyr::arrange(desc(COUNT))
+
+#  species<-left_join(df2, df3, by="Spp")
+
+  return(df4)
 }

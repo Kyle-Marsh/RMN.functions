@@ -15,8 +15,7 @@
 #'
 
 
-bird_focal.graph<-function (df, transect=c(levels(as.factor(df$Transect))), surveyyear=c(levels(as.factor(df$YEAR))), choose_focal_group= c("Grassland", "Oak.Woodland", "Riparian")) {
-
+bird_focal.graph<-function (df, distance,transect=c(levels(as.factor(df$Transect))), surveyyear=c(levels(as.factor(df$YEAR))), choose_focal_group= c("Grassland", "Oak.Woodland", "Riparian")) {
 
 
 
@@ -27,6 +26,7 @@ bird_focal.graph<-function (df, transect=c(levels(as.factor(df$Transect))), surv
 
   df = subset(df, Transect %in% transect)
   df = subset(df, YEAR %in% surveyyear)
+  df<-subset(df, subset = df2$Distance.Bin <= distance)
 
 
   if(choose_focal_group=="Grassland"){
@@ -76,17 +76,17 @@ bird_focal.graph<-function (df, transect=c(levels(as.factor(df$Transect))), surv
     dplyr::mutate(upper= Abundance+se) %>%
     dplyr::mutate(lower=Abundance-se)
 
+  titleCustom = paste("Bird Species Abundance: Radius of " , distance, "meters")
 
 
-
-
-  ggplot(df3,aes(x=df3$Spp, y=df3$Abundance, group=df3$YEAR, fill=df3$YEAR))+
+  ggplot(df3,aes(x=df3$Spp, y=df3$Abundance, group=df3$YEAR, fill=YEAR))+
     geom_col( position = "dodge")+
-    geom_errorbar(aes(ymin=lower, ymax=upper), width=.2, position=position_dodge(.9)) +
     ylab("Focal Species Abundance")+
     xlab("Species Code")+
     theme(axis.text.x = element_text(angle = 40, hjust = 1))+
-    ggtitle("Bird Focal Species Abundance per Year")+
+    geom_text(aes(label=as.character(df3$Abundance)), position=position_dodge(width=0.9), vjust=-0.25)+
+    #geom_text(aes(label=as.character(df3$Abundance)),vjust=-.7 )+
+    ggtitle(titleCustom)+
     scale_fill_manual(values = c("gray27", "gray55", "gray68", "gray88"))
 
 

@@ -13,13 +13,18 @@
 #' @export bird_species.list
 #'
 
-bird_species.list<-function(df,transect=c(levels(as.factor(df$Transect))), surveyyear=c(levels(as.factor(df$YEAR)))){
-  df = subset(df, Transect %in% transect)
-  df = subset(df, YEAR %in% surveyyear)
+bird_species.list<-function(df,distance =300, transect=c(levels(as.factor(df$Transect))), surveyyear=c(levels(as.factor(df$YEAR)))){
 
-  species3<-aggregate(df$COUNT, by=list(Spp=df$Common.Name), FUN=sum)
-  names(species3)<-c("Spp", "COUNT")
-  species3<-arrange(species3, desc(COUNT))
-  df<-species3
-  return(df)
+  df2<-bird_species.pointYear(df,distance)
+  df3 = subset(df2, Transect %in% transect)
+  df4 = subset(df3, YEAR %in% surveyyear)
+
+  species4<-df4 %>%
+    dplyr::group_by(Spp) %>%
+    dplyr::summarize(Count= sum(COUNT))
+
+  names(species4)<-c("Species Code", "COUNT")
+  species4<-arrange(species4, desc(COUNT))
+
+  return(species4)
 }

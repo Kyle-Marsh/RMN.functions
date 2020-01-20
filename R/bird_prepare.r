@@ -12,14 +12,14 @@
 #' @export bird_prepare
 
 
-bird_prepare=function(df,x){
+bird_prepare=function(df){
   bird<-all_remove.first(df)
   bird<-all_Tidynames(bird)
   bird<-bird_MAPdistance.bin(bird)
 
   bird<-bird_prep.columns(bird)
   bird<-bird_subset.cue(bird)
-  bird<-bird_subset.distance(bird, distance=x)
+
 
   return(bird)
 }

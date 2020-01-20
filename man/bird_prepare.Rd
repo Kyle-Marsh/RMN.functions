@@ -4,7 +4,7 @@
 \alias{bird_prepare}
 \title{Prepares bird data for analysis}
 \usage{
-bird_prepare(df, x)
+bird_prepare(df)
 }
 \arguments{
 \item{df}{is a dataframe. Will take raw Point Count CSV files from Point Blue's CADC website}

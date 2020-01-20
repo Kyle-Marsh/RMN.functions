@@ -6,6 +6,7 @@
 \usage{
 bird_focal.graph(
   df,
+  distance,
   transect = c(levels(as.factor(df$Transect))),
   surveyyear = c(levels(as.factor(df$YEAR))),
   choose_focal_group = c("Grassland", "Oak.Woodland", "Riparian")

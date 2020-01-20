@@ -11,18 +11,48 @@
 #' @export bird_wide.data
 #'
 
-bird_wide.data<-function(df){
-  df2<-reshape(df, v.names="ABUNDANCE", idvar="PointYear",timevar="Spp", direction="wide")
 
-  JustSpp<-substr(names(df2[,6:ncol(df2)]),11,14)
-  colnames(df2)[6:ncol(df2)] <- JustSpp
+bird_wide.data<-function(df, distanceWide, transect=c(levels(as.factor(df$Transect))), surveyyear=c(levels(as.factor(df$YEAR)))){
+  data<-subset(df, subset = df$Distance.Bin <= distanceWide)
+  data$Distance.Bin.ID<-as.factor(data$Distance.Bin.ID)
+  data = subset(data, Transect %in% transect)
+  data = subset(data, YEAR %in% surveyyear)
+  df1<-data
+  a<-subset(df1,duplicated(df1$SURVEY)==FALSE)
+  visits<-aggregate(a$Tally, list(a$PointYear), sum)
+  names(visits)<-c("PointYear", "Visits")
 
-  first<-df2[,1:5]
-  second<-df2[,6:length(df2[1,])]
+
+  data2<-subset(df, subset = df$Distance.Bin < distanceWide)
+  data2$Distance.Bin.ID<-as.factor(data2$Distance.Bin.ID)
+  data2 = subset(data2, Transect %in% transect)
+  data2 = subset(data, YEAR %in% surveyyear)
+  df2<-data2
+
+
+  species2<-aggregate(df2$Count,list(df2$Spp , df2$Transect, df2$YEAR, df2$Point),sum)
+  names(species2)<-c("Spp", "Transect", "YEAR", "POINT","COUNT")
+  species2$PointYear<-as.factor(paste(species2$POINT,species2$YEAR, sep=""))
+
+  species<-left_join(species2, visits, by="PointYear")
+
+  df3<-add.zeros.noCount(species)
+
+
+  df4<-reshape(df3, v.names="ABUNDANCE", idvar="PointYear",timevar="Spp", direction="wide")
+
+  JustSpp<-substr(names(df4[,6:ncol(df4)]),11,14)
+  colnames(df4)[6:ncol(df4)] <- JustSpp
+
+  first<-df4[,1:5]
+  second<-df4[,6:length(df4[1,])]
   second<-second[,order(colnames(second))]
-  df2<-as.data.frame(cbind(first,second))
+  df5<-as.data.frame(cbind(first,second))
 
 
-  df2$Richness<-rowSums(df2[,5:ncol(df2)] != 0)
-  return(df2)
+  df5$Richness<-rowSums(df5[,5:ncol(df5)] != 0)
+
+  df5 = subset(df5, df5$YEAR %in% surveyyear)
+
+  return(df5)
 }

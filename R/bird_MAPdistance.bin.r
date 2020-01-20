@@ -17,13 +17,6 @@
 
 
 
-
-
-
-
-
-
-
 bird_MAPdistance.bin<-function (df){
   if(is.factor(df$Distance.Bin)){
     df$Distance.Bin <- mapvalues(df$Distance.Bin, c("<0","75 to 100", "50 to 75", ">75", ">50","<50" ,"", "<10", "10 to 20", "20 to 30", "30 to 50", "30 to 40" ,"40 to 50", "50 to 100", ">100" ,"FlyOver", ">300"), c(0,85, 65, 300, 65, 25, 300,5, 15, 25, 35 ,40,45 ,  75, 300, 300,300))
