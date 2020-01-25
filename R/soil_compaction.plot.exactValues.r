@@ -74,7 +74,7 @@ compaction.plot.exactValues<-function(data,
     ylim(0,max(data$Infilt1)+5)+
     xlim(min(data$Bulk.Density)-.25, max(data$Bulk.Density)+.25)+
     geom_text(aes(label=as.character(data$Point)),position=position_jitter(height = 1.5))+
-    ggtitle("Soil Compaction Plot"+ year2)
+    ggtitle(paste("Soil Compaction Plot", as.character(year)))
   return(p)
 }
 
