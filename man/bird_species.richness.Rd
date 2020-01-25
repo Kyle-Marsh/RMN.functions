@@ -4,12 +4,9 @@
 \alias{bird_species.richness}
 \title{Create a Species Richness per Point Graph}
 \usage{
-bird_species.richness(
-  df,
-  distance = 300,
+bird_species.richness(df, distance = 300,
   transect = c(levels(as.factor(df$Transect))),
-  surveyyear = c(levels(as.factor(df$YEAR)))
-)
+  surveyyear = c(levels(as.factor(df$YEAR))))
 }
 \arguments{
 \item{df}{A data frame object. Only will take newpc2 which is created by:  add.zero() , bird_prepare(). See those functions for additional previous steps.}

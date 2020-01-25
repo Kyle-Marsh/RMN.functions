@@ -4,12 +4,9 @@
 \alias{bird_species.narrow}
 \title{Creates Species dataframe with Spp codes}
 \usage{
-bird_species.narrow(
-  df,
-  distance = 300,
+bird_species.narrow(df, distance = 300,
   transect = c(levels(as.factor(df$Transect))),
-  surveyyear = c(levels(as.factor(df$YEAR)))
-)
+  surveyyear = c(levels(as.factor(df$YEAR))))
 }
 \arguments{
 \item{df}{A data frame object}

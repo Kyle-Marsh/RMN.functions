@@ -4,12 +4,9 @@
 \alias{bird_wide.data}
 \title{Creates wide data frame for Point Count data}
 \usage{
-bird_wide.data(
-  df,
-  distanceWide,
+bird_wide.data(df, distanceWide,
   transect = c(levels(as.factor(df$Transect))),
-  surveyyear = c(levels(as.factor(df$YEAR)))
-)
+  surveyyear = c(levels(as.factor(df$YEAR))))
 }
 \arguments{
 \item{df}{is a dataframe. Only works with newpc2 created by add.zeros() and it's previous steps.}

@@ -10,6 +10,8 @@ all_remove.first(df)
 }
 \arguments{
 \item{df}{A dataframe object}
+
+\item{df}{A dataframe object}
 }
 \value{
 A data frame without empty first row

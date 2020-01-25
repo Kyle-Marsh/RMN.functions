@@ -4,13 +4,8 @@
 \alias{add.soilcolumns}
 \title{Add date, year, and survey ID columns}
 \usage{
-add.soilcolumns(
-  data,
-  inf_diameter = 15.2,
-  bd_diameter = 5.2,
-  volume = 450,
-  bd_height = 7.5
-)
+add.soilcolumns(data, inf_diameter = 15.2, bd_diameter = 5.2,
+  volume = 450, bd_height = 7.5)
 }
 \arguments{
 \item{bd_height}{}

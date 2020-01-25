@@ -4,26 +4,12 @@
 \alias{texture.triangle.plot}
 \title{Make a soil texture triangle}
 \usage{
-texture.triangle.plot(
-  data,
-  transect,
-  year,
-  labels = TRUE,
-  background = TRUE,
-  pch = 16,
-  main = paste("Soil Texture - ", transect),
-  cex.axis = 0.5,
-  cex.lab = 0.75,
-  cex.main = 0.75,
-  text.tol = 0.2,
-  tri.sum.tst = FALSE,
-  cex = 0.75,
-  frame.bg.col = "white",
-  grid.show = FALSE,
-  legend = TRUE,
-  colors = c("black", "gray"),
-  legendtitle = "Ranch"
-)
+texture.triangle.plot(data, transect, year, labels = TRUE,
+  background = TRUE, pch = 16, main = paste("Soil Texture - ",
+  transect), cex.axis = 0.5, cex.lab = 0.75, cex.main = 0.75,
+  text.tol = 0.2, tri.sum.tst = FALSE, cex = 0.75,
+  frame.bg.col = "white", grid.show = FALSE, legend = TRUE,
+  colors = c("black", "gray"), legendtitle = "Ranch")
 }
 \arguments{
 \item{data}{dataframe, output of prepare.soil.triangle()}

@@ -4,12 +4,9 @@
 \alias{bird_birdcount.year}
 \title{Create Species List}
 \usage{
-bird_birdcount.year(
-  df,
-  distance = 300,
+bird_birdcount.year(df, distance = 300,
   transect = c(levels(as.factor(df$Transect))),
-  surveyyear = c(levels(as.factor(df$YEAR)))
-)
+  surveyyear = c(levels(as.factor(df$YEAR))))
 }
 \arguments{
 \item{df}{A data frame object. Only will take species which is created by:  bird_species.common(). See that function for previous steps.}

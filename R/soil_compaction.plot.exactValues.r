@@ -14,15 +14,14 @@
 #' @param xlab,ylab character strings for axis lables
 #' @param linetype specifies type of line shown for BD and Infiltration targets
 #' @param pointsize specifies size of a point
-#' @param Inftarget target infiltration time
 #' @param xlims,ylims numeric vectors of length 2 that specify the respective lower and upper limits of the axes. NA values cause default axis limits
 #'
 #' @return Shows soil compaction plot
 #'
-#' @examples compaction.plot(soil, "ranchname")
+#' @examples compaction.plot.exactValue(soil, "ranchname")
 #'
 #'
-#' @export compaction.plot
+#' @export compaction.plot.exactValue
 #'
 #'
 

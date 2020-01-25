@@ -4,15 +4,10 @@
 \alias{cover.summary}
 \title{Create cover summary table for veg data}
 \usage{
-cover.summary(
-  lpi,
-  releve,
-  transect,
-  surveyyear = c(levels(as.factor(lpi$year)), levels(as.factor(releve$year))),
-  choose.variable = c("SpeciesRichness", "Litter", "Thatch", "BareGround", "Trees",
-    "Shrubs"),
-  rounded = TRUE
-)
+cover.summary(lpi, releve, transect,
+  surveyyear = c(levels(as.factor(lpi$year)),
+  levels(as.factor(releve$year))), choose.variable = c("SpeciesRichness",
+  "Litter", "Thatch", "BareGround", "Trees", "Shrubs"), rounded = TRUE)
 }
 \arguments{
 \item{lpi}{A dataframe object of lpi data from a veg survey}
