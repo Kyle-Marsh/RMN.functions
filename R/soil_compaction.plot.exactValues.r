@@ -22,7 +22,7 @@
 #' @examples compaction.plot(soil, "ranchname")
 #'
 #'
-#' @export compaction.plot
+#' @export compaction.plot.exactValues
 #'
 #'
 
