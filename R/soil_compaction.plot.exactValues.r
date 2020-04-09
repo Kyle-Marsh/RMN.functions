@@ -21,11 +21,7 @@
 #' @examples compaction.plot.exactValue(soil, "ranchname")
 #'
 #'
-<<<<<<< HEAD
 #' @export compaction.plot.exactValues
-=======
-#' @export compaction.plot.exactValue
->>>>>>> 155b2dc75d607d67178530fdeea5105a340ebb0f
 #'
 #'
 

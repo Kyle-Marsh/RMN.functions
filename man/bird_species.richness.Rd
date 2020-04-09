@@ -4,24 +4,28 @@
 \alias{bird_species.richness}
 \title{Create a Species Richness per Point Graph}
 \usage{
-bird_species.richness(df, distance = 300,
+bird_species.richness(df, relative = T, distance = 300,
   transect = c(levels(as.factor(df$Transect))),
   surveyyear = c(levels(as.factor(df$YEAR))))
 }
 \arguments{
 \item{df}{A data frame object. Only will take newpc2 which is created by:  add.zero() , bird_prepare(). See those functions for additional previous steps.}
 
+\item{relative}{if you want to have the graph consider effort.}
+
+\item{distance}{distance.}
+
 \item{transect}{A ranch code or a list of ranch codes ie."TOKA".}
 
 \item{surveyyear}{A year or multiple years. ie. c(2016,2018)}
 }
 \value{
-A graph that summerises species richness of each bird species per point and year.
+A graph that summerises species richness of birds per point and year.
 }
 \description{
 Takes bird data that has been prepared by bird_prepare function and add.zero function to create a species richness per point graph based on ranch transect and surveyyear.
 }
 \examples{
-data = bird_species.richness(newpc2, "TOKA", 2016)
+bird_species.richness(newpc2, "TOKA", 2016)
 
 }
