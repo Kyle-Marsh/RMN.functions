@@ -4,19 +4,12 @@
 \alias{functional.cover.plot}
 \title{Functional cover summary plot}
 \usage{
-functional.cover.plot(
-  lpi,
-  type = "absolute",
-  transect,
-  background = TRUE,
-  invasives = FALSE,
+functional.cover.plot(lpi, type = "absolute", transect,
+  background = TRUE, invasives = FALSE,
   surveyyear = max(levels(as.factor(lpi$year))),
-  xlab = "Functional Group",
-  ylab = "Percent Cover",
-  legendtitle = "Ranch",
-  legendnames = c(paste(transect, collapse = " "), "Others"),
-  boxcolors = c("black", "gray")
-)
+  xlab = "Functional Group", ylab = "Percent Cover",
+  legendtitle = "Ranch", legendnames = c(paste(transect, collapse =
+  " "), "Others"), boxcolors = c("black", "gray"))
 }
 \arguments{
 \item{lpi}{A dataframe object of lpi data from a veg survey}

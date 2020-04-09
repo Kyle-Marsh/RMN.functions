@@ -4,20 +4,13 @@
 \alias{functional.cover.change.plot}
 \title{Functional cover change summary plot}
 \usage{
-functional.cover.change.plot(
-  lpi,
-  transect,
-  invasives = FALSE,
-  surveyyear = levels(as.factor(lpi$year)),
-  background = TRUE,
-  type = "absolute",
-  xlab = "Functional Group",
-  ylab = paste("Cover Change", " ", min(levels(as.factor(surveyyear))), "-",
-    max(levels(as.factor(surveyyear))), sep = ""),
-  legendtitle = "Ranch",
-  legendnames = c(paste(transect, collapse = " "), "Others"),
-  boxcolors = c("black", "gray")
-)
+functional.cover.change.plot(lpi, transect, invasives = FALSE,
+  surveyyear = levels(as.factor(lpi$year)), background = TRUE,
+  type = "absolute", xlab = "Functional Group",
+  ylab = paste("Cover Change", " ", min(levels(as.factor(surveyyear))),
+  "-", max(levels(as.factor(surveyyear))), sep = ""),
+  legendtitle = "Ranch", legendnames = c(paste(transect, collapse =
+  " "), "Others"), boxcolors = c("black", "gray"))
 }
 \arguments{
 \item{lpi}{A dataframe object of lpi data from a veg survey}

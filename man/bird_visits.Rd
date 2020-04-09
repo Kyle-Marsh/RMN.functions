@@ -4,12 +4,9 @@
 \alias{bird_visits}
 \title{Create Visit Table}
 \usage{
-bird_visits(
-  df,
-  distance = 300,
+bird_visits(df, distance = 300,
   transect = c(levels(as.factor(df$Transect))),
-  surveyyear = c(levels(as.factor(df$YEAR)))
-)
+  surveyyear = c(levels(as.factor(df$YEAR))))
 }
 \arguments{
 \item{df}{A data frame object}

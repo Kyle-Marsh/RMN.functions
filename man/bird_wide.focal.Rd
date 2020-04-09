@@ -4,13 +4,10 @@
 \alias{bird_wide.focal}
 \title{Creates a subsetted wide data frame for Point Count data}
 \usage{
-bird_wide.focal(
-  df,
-  distance,
+bird_wide.focal(df, distance,
   transect = c(levels(as.factor(df$Transect))),
   surveyyear = c(levels(as.factor(df$YEAR))),
-  choose_focal_group = c("Grassland", "Oak Woodland", "Riparian")
-)
+  choose_focal_group = c("Grassland", "Oak Woodland", "Riparian"))
 }
 \arguments{
 \item{df}{is a dataframe. Only works with newpc2 created by add.zeros() and it's previous steps.}

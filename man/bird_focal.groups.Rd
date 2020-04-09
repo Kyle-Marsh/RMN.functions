@@ -4,12 +4,9 @@
 \alias{bird_focal.groups}
 \title{Create a Focal Species Abundance Graph. Bar for each: Grassland, OakWoodland, and Riparian Spp}
 \usage{
-bird_focal.groups(
-  df2,
-  distance_focal,
+bird_focal.groups(df2, distance_focal,
   transect = c(levels(as.factor(df$Transect))),
-  surveyyear = c(levels(as.factor(df$YEAR)))
-)
+  surveyyear = c(levels(as.factor(df$YEAR))))
 }
 \arguments{
 \item{df2}{A data frame object. Only will take bird_prepare(). See those functions for additional previous steps.}

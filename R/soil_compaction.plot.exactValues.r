@@ -14,15 +14,18 @@
 #' @param xlab,ylab character strings for axis lables
 #' @param linetype specifies type of line shown for BD and Infiltration targets
 #' @param pointsize specifies size of a point
-#' @param Inftarget target infiltration time
 #' @param xlims,ylims numeric vectors of length 2 that specify the respective lower and upper limits of the axes. NA values cause default axis limits
 #'
 #' @return Shows soil compaction plot
 #'
-#' @examples compaction.plot(soil, "ranchname")
+#' @examples compaction.plot.exactValue(soil, "ranchname")
 #'
 #'
+<<<<<<< HEAD
 #' @export compaction.plot.exactValues
+=======
+#' @export compaction.plot.exactValue
+>>>>>>> 155b2dc75d607d67178530fdeea5105a340ebb0f
 #'
 #'
 
@@ -48,6 +51,7 @@ compaction.plot.exactValues<-function(data,
   library(ggplot2)
   library(soiltexture)
   library(ggrepel)
+  year2<- year
   data = subset(data, YEAR %in% year)
   if(any(is.na(data$BD_dist))){
     removed = nrow(data[is.na(data$BD_dist) | is.na(data$Infilt_dist),])
@@ -65,16 +69,16 @@ compaction.plot.exactValues<-function(data,
   } else {
     labs = NA
   }
-  p = ggplot(soil_data, aes(x=Bulk.Density, y=Infilt1))+
+  p = ggplot(data, aes(x=Bulk.Density, y=Infilt1))+
     geom_point()+
     ylab("Water Infiltration (minutes)")+
     xlab("Bulk Density (g/cm3)")+
     geom_hline(yintercept = 15)+
     geom_vline(xintercept = 1.4)+
-    ylim(0,max(soil_data$Infilt1)+5)+
-    xlim(min(soil_data$Bulk.Density)-.25, max(soil_data$Bulk.Density)+.25)+
-    geom_text(aes(label=as.character(soil_data$Point)),position=position_jitter(height = 1.5))+
-    ggtitle("Soil Compaction Plot 2019")
+    ylim(0,max(data$Infilt1)+5)+
+    xlim(min(data$Bulk.Density)-.25, max(data$Bulk.Density)+.25)+
+    geom_text(aes(label=as.character(data$Point)),position=position_jitter(height = 1.5))+
+    ggtitle(paste("Soil Compaction Plot", as.character(year)))
   return(p)
 }
 

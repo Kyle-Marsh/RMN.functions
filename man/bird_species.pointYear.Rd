@@ -4,12 +4,9 @@
 \alias{bird_species.pointYear}
 \title{Creates Species dataframe summarized by point and year.}
 \usage{
-bird_species.pointYear(
-  df,
-  distance = 300,
+bird_species.pointYear(df, distance = 300,
   transect = c(levels(as.factor(df$Transect))),
-  surveyyear = c(levels(as.factor(df$YEAR)))
-)
+  surveyyear = c(levels(as.factor(df$YEAR))))
 }
 \arguments{
 \item{df}{A data frame object}
