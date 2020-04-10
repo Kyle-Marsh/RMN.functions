@@ -17,6 +17,6 @@ Takes bird data that has been prepared by bird_prepare function and turned into 
    The data entered into this function should be created by: pc<-merge(species, visits, by="PointYear", all=TRUE) pc<-droplevels(pc)
 }
 \examples{
-newpc2 = bird_species.common(pc)
+newpc2 = add.zeros(pc)
 
 }

@@ -2,16 +2,14 @@
 #'
 #' @description Creates a dataframe
 #'
-#' @param df A data frame object
+#' @param df2 A data frame object
 #'
 #' @return A df
 #'
-#' @examples add.zeros.commonName(df)
+#' @examples add.zeros.commonName(df2)
 #'
 #' @export add.zeros.commonName
-
-
-
+#'
 
 
 

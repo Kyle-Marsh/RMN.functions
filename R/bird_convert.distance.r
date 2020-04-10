@@ -9,7 +9,7 @@
 #'
 #' @examples data = bird_convert.distance(data)
 #'
-#' @export remove_first
+#' @export bird_convert.distance
 #'
 #'
 #'

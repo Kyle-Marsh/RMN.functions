@@ -7,7 +7,7 @@
 add.zeros.commonName(pc2)
 }
 \arguments{
-\item{df}{A data frame object}
+\item{df2}{A data frame object}
 }
 \value{
 A df
@@ -16,6 +16,6 @@ A df
 Creates a dataframe
 }
 \examples{
-add.zeros.commonName(df)
+add.zeros.commonName(df2)
 
 }

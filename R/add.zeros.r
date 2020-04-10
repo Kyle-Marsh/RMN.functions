@@ -7,9 +7,9 @@
 #'
 #' @return A data frame that should be saved as newpc2
 #'
-#' @examples newpc2 = bird_species.common(pc)
+#' @examples newpc2 = add.zeros(pc)
 #'
-#' @export bird_species.common
+#' @export add.zeros
 #'
 
 

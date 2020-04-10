@@ -8,7 +8,7 @@
 #'
 #' @examples data = remove_first(data)
 #'
-#' @export all_remove.first
+#' @export all_remove.first2
 #'
 #'
 #'
@@ -16,7 +16,7 @@
 
 
 
-all_remove.first<-function(df){
+all_remove.first2<-function(df){
   if(df[1,1]=="")
   {df<-df[-1,]
   rownames(df)<-1:nrow(df)
